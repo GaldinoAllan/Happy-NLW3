@@ -1,14 +1,14 @@
-import express, { json } from 'express';
+import express from 'express';
 
 import './database/connection';
+
+import routes from './routes'
 
 const app = express();
 
 app.use(express.json());
 
-app.get('/users', (request, response) => {
-  return response.json({ message: 'Hello World!' });
-});
+app.use(routes);
 
 // Rota que a aplicação estará hospedada
 app.listen(3333, () => {
